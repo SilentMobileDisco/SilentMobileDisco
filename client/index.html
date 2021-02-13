@@ -7,32 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style type="text/css">
         body {
-            background-color:#115500;
-            color:#77FF22;
+            background-color:#502749;
+            color: #6fe382;
             font-family: sans-serif;
-        }
-        #stream {
-            width:320px;
-            margin-left: auto;
-            margin-right: auto;
         }
         h1 {
             text-align:center;
             font-family: sans-serif;
         }
+
+        #play-button {
+            display:block;
+            width:80%;
+            height:40vh;
+            margin-left:auto;
+            margin-right:auto;
+            font-size:2em;
+            background-color:black;
+            color:#FFFFFF;
+        }
     </style>
 </head>
 <body>
-    <h1>WELCOME TO THE STREAM</h1>
+    <h1>Silent Mobile Disco</h1>
     <div id="stream">
-        <video id="video" controls width="320" height="320" style="display:none"></video>
-        <audio controls id="audio" style="display:none"></audio>
+        <button id="play-button">Connect to stream</button>
+        <video id="video" width="320" height="320" style="display:none"></video>
+        <audio id="audio" style="display:none"></audio>
         <div id="noSupport"></div>
-        <button id="play-button">Let's do this shit</button>
     </div>
 
 <script>
-    var m3uUrl = "http://192.168.0.7:8080/hls/test.m3u8";
+    var m3uUrl = "/hls/test.m3u8";
     var mimeType = 'application/vnd.apple.mpegurl';
     var audio = document.getElementById("audio");
     var video = document.getElementById('video');
@@ -64,10 +70,10 @@
     playButton.addEventListener("click", function() {
         if (isVideo) {
             video.play();
-            video.currentTime = video.duration - 1;
+            video.currentTime = video.duration?video.duration: 0 - 1;
         } else {
             audio.play();
-            audio.currentTime = audio.duration - 1;
+            audio.currentTime = audio.duration?audio.duration: 0 - 1;
         }
     })
 
