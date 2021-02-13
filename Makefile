@@ -4,4 +4,4 @@ build:
 	docker build -t silent-rtmp -f Dockerfile .
 
 run:
-	docker run -d -p 1935:1935 -p 8080:8080 silent-rtmp:latest
+	docker run -it -p 1935:1935 -p 8080:8080 -p 80:80 silent-rtmp:latest
