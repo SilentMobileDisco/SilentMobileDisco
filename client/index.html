@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Silent Mobile Disco</title>
+    <script src="vendor/hls.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body {
+            background-color:#115500;
+            color:#77FF22;
+            font-family: sans-serif;
+        }
+        #stream {
+            width:320px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1 {
+            text-align:center;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>WELCOME TO THE STREAM</h1>
+    <div id="stream">
+        <video id="video" controls width="320" height="320" style="display:none"></video>
+        <audio controls id="audio" style="display:none"></audio>
+        <div id="noSupport"></div>
+        <button id="play-button">Let's do this shit</button>
+    </div>
+
+<script>
+    var m3uUrl = "http://192.168.0.7:8080/hls/test.m3u8";
+    var mimeType = 'application/vnd.apple.mpegurl';
+    var audio = document.getElementById("audio");
+    var video = document.getElementById('video');
+
+    var isVideo = false;
+
+    if (audio.canPlayType(mimeType)) {
+        console.log("Browser supports HLS Audio natively");
+        audio.src = m3uUrl;
+        audio.style.display = "block";
+    } else if (video.canPlayType(mimeType)) {
+        isVideo = true;
+        console.log("Browser supports HLS Video natively");
+        video.src = m3uUrl;
+        video.style.display = "block";
+    } else if (Hls.isSupported()) {
+        isVideo = true;
+        video.style.display = "block";
+        console.log("No browser HLS support, using HLS.js as fallback");
+        var hls = new Hls();
+        hls.loadSource(m3uUrl);
+        hls.attachMedia(video);
+    } else {
+        document.getElementById("noSupport").innerText =
+            "Sorry, the browser you are using doesn't support any live streaming protocols";
+    }
+
+    var playButton = document.getElementById("play-button");
+    playButton.addEventListener("click", function() {
+        if (isVideo) {
+            video.play();
+            video.currentTime = video.duration - 1;
+        } else {
+            audio.play();
+            audio.currentTime = audio.duration - 1;
+        }
+    })
+
+</script>
+</body>
+</html>
