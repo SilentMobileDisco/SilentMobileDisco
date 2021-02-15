@@ -1,4 +1,4 @@
-FROM tiangolo/nginx-rtmp
+FROM moul/icecast
+ADD server/icecast.xml /etc/icecast2
 
-COPY server/nginx.conf /etc/nginx/nginx.conf
-COPY client/ /data/www/listen
+COPY client /usr/share/icecast2/web/listen
