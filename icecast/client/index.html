@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Silent Mobile Disco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body {
+            background-color:#502749;
+            color: #6fe382;
+            font-family: sans-serif;
+        }
+        h1 {
+            text-align:center;
+            font-family: sans-serif;
+        }
+
+        #play-button {
+            display:block;
+            width:80%;
+            height:40vh;
+            margin-left:auto;
+            margin-right:auto;
+            font-size:2em;
+            background-color:black;
+            color:#FFFFFF;
+        }
+        audio {
+            width:50vw;
+            height:50px;
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Silent Mobile Disco</h1>
+    <div id="stream">
+        <button id="play-button">Connect to stream</button>
+        <audio id="audio" controls>
+            <source src="/silent-disco.mp3" type="audio/mpeg">
+        </audio>
+        <div id="noSupport"></div>
+    </div>
+
+<script>
+    var audio = document.getElementById("audio");
+    var playButton = document.getElementById("play-button");
+
+    playButton.addEventListener("click", function() {
+        audio.play();
+    })
+</script>
+</body>
+</html>

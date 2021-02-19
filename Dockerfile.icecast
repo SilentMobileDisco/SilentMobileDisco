@@ -1,0 +1,4 @@
+FROM moul/icecast
+ADD icecast/server/icecast.xml /etc/icecast2
+
+COPY icecast/client /usr/share/icecast2/web/listen
