@@ -6,6 +6,9 @@ build-icecast:
 run-icecast:
 	docker run -d -p 8000:8000 silent-icecast:latest
 
+run-icecast-local:
+	icecast2 -c icecast/server/icecast-local.xml
+
 build-rtmp:
 	docker build -t silent-rtmp -f Dockerfile.rtmp .
 
