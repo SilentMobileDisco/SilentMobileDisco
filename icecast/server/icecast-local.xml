@@ -1,7 +1,8 @@
 <icecast>
     <limits>
         <clients>1000</clients>
-        <sources>42</sources>
+        <!-- TODO: One day we could change this to support multiple "rooms" -->
+        <sources>1</sources> 
         <threadpool>5</threadpool>
         <queue-size>524288</queue-size>
         <client-timeout>30</client-timeout>
@@ -13,7 +14,7 @@
              it also significantly increases latency between the source
              client and listening client.  For low-latency setups, you
              might want to disable this. -->
-        <burst-on-connect>1</burst-on-connect>
+        <burst-on-connect>0</burst-on-connect>
         <!-- same as burst-on-connect, but this allows for being more
              specific on how much to burst. Most people won't need to
              change from the default 64k. Applies to all mountpoints  -->
