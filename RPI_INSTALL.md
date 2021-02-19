@@ -14,13 +14,16 @@ make run-icecast-local
 ```
 
 
+## Installing Docker (optional)
 
+```
 sudo apt-get update
+```
 
-Warning: Always examine scripts downloaded from the internet before running them locally.
-
+> Warning: Always examine scripts downloaded from the internet before running them locally.
+```
 $ curl -fsSL https://get.docker.com -o get-docker.sh
 $ sudo sh get-docker.sh
 $ sudo usermod -aG docker <your-user>
-
+```
 
