@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Silent Mobile Disco</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="stream.js"></script>
     <style type="text/css">
         body {
             background-color:#502749;
@@ -36,21 +37,15 @@
 </head>
 <body>
     <h1>Silent Mobile Disco</h1>
-    <div id="stream">
-        <button id="play-button">Connect to stream</button>
-        <audio id="audio" controls>
-            <source src="/silent-disco.mp3" type="audio/mpeg">
-        </audio>
-        <div id="noSupport"></div>
-    </div>
+    <button id="init-button">Connect to stream</button>
+    <button id="play-pause">Pause</button>
+<!--    <div id="stream">-->
+<!--        <button id="play-button">Connect to stream</button>-->
+<!--        <audio id="audio" controls>-->
+<!--            <source src="http://localhost:8000/silent-disco.mp3" type="audio/mpeg">-->
+<!--        </audio>-->
+<!--        <div id="noSupport"></div>-->
+<!--    </div>-->
 
-<script>
-    var audio = document.getElementById("audio");
-    var playButton = document.getElementById("play-button");
-
-    playButton.addEventListener("click", function() {
-        audio.play();
-    })
-</script>
 </body>
 </html>
