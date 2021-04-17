@@ -24,3 +24,9 @@ ffmpeg -re -i ${INPUT_FILE} -c:a libmp3lame -b:a 128k -content_type 'audio/mpeg'
 
 Open `http://${YOUR_IP_OR_HOSTNAME}:8000` in a desktop or mobile browser
 
+### RPi Wifi driver issues
+
+This thread details a fix for the wifi board crashing
+https://www.raspberrypi.org/forums/viewtopic.php?t=271884
+https://www.raspberrypi.org/forums/viewtopic.php?t=270534
+
