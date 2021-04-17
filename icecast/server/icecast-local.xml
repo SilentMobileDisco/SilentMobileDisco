@@ -130,8 +130,8 @@
 
         <!-- Note that if <chroot> is turned on below, these paths must both
              be relative to the new root, not the original root -->
-        <logdir>/var/log/icecast2</logdir>
-        <webroot>/usr/share/icecast2/web</webroot>
+        <logdir>./icecast/logs</logdir>
+        <webroot>./icecast/client</webroot>
         <adminroot>/usr/share/icecast2/admin</adminroot>
         <!-- <pidfile>/usr/share/icecast2/icecast.pid</pidfile> -->
 
@@ -146,7 +146,7 @@
              this example will redirect all requests for http://server:port/ to
              the status page
           -->
-        <alias source="/" dest="/listen/index.html"/>
+        <alias source="/" dest="/index.html"/>
     </paths>
 
     <logging>
@@ -165,11 +165,11 @@
 
     <security>
         <chroot>0</chroot>
-        <!--
+        
         <changeowner>
             <user>nobody</user>
             <group>nogroup</group>
         </changeowner>
-        -->
+        
     </security>
 </icecast>
